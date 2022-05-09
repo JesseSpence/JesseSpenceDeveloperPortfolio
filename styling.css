@@ -1,3 +1,8 @@
+:root {
+    --main-color:rgb(227, 22, 63);
+    
+}
+
 *{
     margin: 0%;
     padding: 0%;
@@ -5,6 +10,7 @@
     
 }
 body{
+    
     min-height: 100vh;
     background-color: white;
 }
@@ -20,11 +26,15 @@ body{
     transition:0.4s;
     font-weight: 500;
 }
-.nav-link:active{}
-.nav-link:focus{}
+.nav-link:active{
+    margin: 0%;
+}
+.nav-link:focus{
+    margin: 0%;
+}
 .nav-link:hover{
     margin-left: 3%;
-    color: crimson !important;
+    color: var(--main-color)!important;
     background-color: gray;
 }
 .my-container{
@@ -60,9 +70,35 @@ body{
     }
     #menu-btn{
         display:inline;
+        position: fixed;
         background-color: lightgray;
     }
     #menu-btn:focus{
         box-shadow: 0 0 0 0.25rem gray;
     }
+}
+.section-heading {
+    position: relative;
+}
+.section-heading::before{
+    content: '';
+    background-color:var(--main-color);
+    width: 25px;
+    height: 4px;
+    position: absolute;
+    top:105%;
+    
+}
+.section-heading::after{
+    content: '';
+    background-color:var(--main-color);
+    height: 4px;
+    width: 50px;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    margin-top: -8px;
+}
+#home{
+    height:100vh;
 }
