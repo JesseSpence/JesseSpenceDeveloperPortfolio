@@ -99,7 +99,7 @@ body{
     content: '';
     background-color:var(--highlight-color);
     width: 25px;
-    height: 4px;
+    height: 3px;
     position: absolute;
     top:105%;
     
@@ -107,7 +107,7 @@ body{
 .section-heading::after{
     content: '';
     background-color:var(--highlight-color);
-    height: 4px;
+    height: 3px;
     width: 50px;
     position: absolute;
     top: 90%;
@@ -176,16 +176,66 @@ body{
 }
 
 .resumebox{
-    Height:80vh;
+    Height:fit-content;
     width:90%;
     background-color: #ffffff;
-    border:#302e4d solid 2px;
-
+    box-shadow: 0 0 20px rgba(47, 46, 77, 0.15);
 }
+.timepiece{position: relative;
+    padding-top: 8%;
+}
+.timepiece:last-child{
+    padding-bottom: 8%;
+}
+
+.circledot{
+    margin-left: 1%;
+    height:10px;
+    width:10px;
+    position: absolute;
+    border-radius: 50%;
+    left:-5%;
+    background-color: var(--highlight-color);
+}
+
+.circledot::after{
+    content: '';
+    background-color: var(--highlight-color);
+    height: 180px;
+    width: 1px;
+    position: absolute;
+    left: 35%;
+}
+
 .servicebox{
     height: 280px;
     width: 300px;
     background-color: white;
-    border:#302e4d solid 2px;
+    transition: all ease-in-out .4s;
     margin-left: 1%;
+    text-align: center;
+    padding-top: 5%;
+    border-radius: 10px;
+
 }
+.servicebox:hover{
+    box-shadow: 3px 0 20px 1px rgba(47, 46, 77, 0.15);
+}
+    
+.servicebox .icon{
+    color:var(--highlight-color);
+    font-size: 3rem;
+   border-radius: 50%;
+    margin: auto;
+    width: 80px;
+    display: block;
+    transition: ease-in .6s;
+    
+}
+.servicebox:hover .icon{
+    background-color: var(--highlight-color);
+    color:white;
+    transform:scale(0.8);
+    
+}
+
