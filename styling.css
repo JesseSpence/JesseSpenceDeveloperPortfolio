@@ -310,3 +310,13 @@ margin-top: 80px;
  .cube div.back {
     transform: translateZ(-25px); 
  }
+ #projects{
+    max-width:100vw;
+ }
+ .projectbox{
+     padding:50px;
+     display:flex;
+     flex-wrap:wrap-reverse;
+     margin:60px;
+     justify-content: space-around;
+ }
