@@ -13,8 +13,9 @@
    font-family:  "Rubik", sans-serif;
     
 }
+.backhighlight{background-color:var(--highlight-color)!important}
 .textclr{color:var(--text-color)}
-.highlight{color:var(--highlight-color)}
+.highlight{color:var(--highlight-color)!important}
 .textmute{color: var(--text-mute)}
 
 body{
@@ -30,18 +31,18 @@ body{
     background-color: var(--nav-color);
     transition: 0.5s;
 }
-#sidebar li a{
+#sidebar ul li a{
     transition:0.5s;
     font-weight: 500;
 }
 
 
-#sidebar li a:hover{
+#sidebar ul li a:hover{
     margin-left: 3%;
     color: var(--highlight-color)!important;
 
 }
-#sidebar li a:focus{
+#sidebar ul li a:focus{
     margin-left: 3%;
     color: var(--highlight-color)!important;
 }
@@ -170,6 +171,7 @@ body{
     
     
 }
+
 .aboutbtn:hover{
     transform: scale(1.1);
     color: var(--text-mute);
@@ -209,6 +211,7 @@ body{
 
 .servicebox{
     height: 280px;
+    margin-top:20px;
     width: 300px;
     background-color: white;
     transition: all ease-in-out .4s;
@@ -235,7 +238,75 @@ body{
 .servicebox:hover .icon{
     background-color: var(--highlight-color);
     color:white;
-    transform:scale(0.8);
-    
+    transform:scale(0.8);  
 }
 
+.contact-container{
+margin-top: 80px;
+}
+.contactrow{
+    display:flex;
+
+}
+.cube { padding-right:100px;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(-45deg); 
+ }
+
+ .cube div {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background: var(--highlight-color);
+
+    box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.6);
+ }
+ 
+ 
+ .cube div.top {
+    transform: rotateX(90deg);
+    margin-top: -25px;
+    transition: all ease-in-out 1s;
+ }
+ .cube div.top:hover{
+     transform: translateX(-60px);
+ }
+ 
+ .cube div.right {
+    transform: rotateY(90deg); 
+    margin-left: 25px;
+    transition:all ease-in-out 1s;
+ }
+ .cube div.right:hover, .top {
+    display:block;
+ }
+ 
+
+ 
+ .cube div.bottom {
+   transform: rotateX(90deg);
+   margin-top: 25px;
+ }
+ 
+ .cube div.left {
+    transform: rotateY(-90deg);
+    margin-left: -25px;
+ }
+ .cube div.left:hover {
+    transform:translateZ(50px)
+ }
+ 
+ .cube div.front {
+    transform: translateZ(25px); 
+    transition: all ease-in-out 2s;
+ }
+ .cube div.front:hover {
+    transform:translateZ(-60px)
+ }
+ 
+ .cube div.back {
+    transform: translateZ(-25px); 
+ }
