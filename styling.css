@@ -54,6 +54,7 @@ body{
 
 
 .my-container{
+    overflow: hidden;
     margin-left: 250px;
    
 }
@@ -264,6 +265,9 @@ margin-top: 80px;
 
     box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.6);
  }
+ .cube:hover .top {
+    transform: translateX(-60px);
+ }
  
  
  .cube div.top {
@@ -285,7 +289,6 @@ margin-top: 80px;
  }
  
 
- 
  .cube div.bottom {
    transform: rotateX(90deg);
    margin-top: 25px;
@@ -295,20 +298,63 @@ margin-top: 80px;
     transform: rotateY(-90deg);
     margin-left: -25px;
  }
- .cube div.left:hover {
-    
- }
  
  .cube div.front {
     transform: translateZ(25px); 
     transition: all ease-in-out 2s;
  }
- .cube div.front:hover {
-   
- }
  
  .cube div.back {
     transform: translateZ(-25px); 
+ }
+
+ @media screen and (max-width:390px) {
+    .cube { 
+        width: 25px;
+        padding-right: 60px;
+     }
+    
+     .cube div { 
+        width: 25px;
+        height: 25px;
+
+     }
+     .cube div.top {
+        transform: rotateX(90deg);
+        margin-top: -12px;
+        transition: all ease-in-out 1s;
+     }
+     .cube div.top:hover{
+         transform: translateX(-60px);
+     }
+     
+     .cube div.right {
+        transform: rotateY(90deg); 
+        margin-left: 12px;
+        transition:all ease-in-out 1s;
+     }
+     
+     
+    
+     .cube div.bottom {
+       transform: rotateX(90deg);
+       margin-top: 12.5px;
+     }
+     
+     .cube div.left {
+        transform: rotateY(-90deg);
+        margin-left: -12.5px;
+     }
+     
+     .cube div.front {
+        transform: translateZ(12.5px); 
+        transition: all ease-in-out 2s;
+     }
+     
+     .cube div.back {
+        transform: translateZ(-12.5px); 
+     }
+    
  }
  #projects{
     max-width:100vw;
@@ -321,11 +367,7 @@ margin-top: 80px;
      justify-content: space-around;
  }
 
- #testimonials-container {
-    width: 500px;
-    margin: 50px auto;
-    text-align: center;
-}
+ 
 
 figure {
     margin: auto;
@@ -345,32 +387,34 @@ figure {
         transform: translateZ(-540px);
         position: relative;
         margin: 0;
-        width: 400px;
-        height: 300px;
+        width: 300px;
+        height: 200px;
         transition: 1s;
     }
 
         .carousel img {
             position: absolute;
-            border: 10px solid rgba(0, 0, 0, .8);
+            border: 5px solid var(--highlight-color);
             opacity: .5;
-            transition: 1s;
-    width: 400px;
-    height: 300px;
-    background:#ccc;
+            transition: 2s;
+            box-shadow: 0 0 20px rgba(47, 46, 77, 0.15);
+    width: 300px;
+    height: 200px;
+    background:#ffff;
         }
 
             
-            .carousel img:nth-child(1) {
-      transform: translateZ(540px) scale(.6); }
-            .carousel img:nth-child(2) {
-      transform: rotateY(45deg) translateZ(540px) scale(.6); }
-            .carousel img:nth-child(3) {
-      transform: rotateY(90deg) translateZ(540px) scale(.6); }
-            .carousel img:nth-child(4) {
-      transform: rotateY(135deg) translateZ(540px) scale(.6); }
-            .carousel img:nth-child(5) { 
-      transform: rotateY(180deg) translateZ(540px) scale(.6); }
+.carousel img:nth-child(1) {
+    width:280px;
+      transform: translateZ(540px) scale(.8); }
+.carousel img:nth-child(3) {
+      transform: rotateY(45deg) translateZ(540px) scale(.8); }
+.carousel img:nth-child(4) {
+      transform: rotateY(90deg) translateZ(540px) scale(.8); }
+.carousel img:nth-child(5) {
+      transform: rotateY(135deg) translateZ(540px) scale(.8); }
+.carousel img:nth-child(6) { 
+      transform: rotateY(180deg) translateZ(540px) scale(.8); }
             
 label {
     cursor: pointer;
@@ -392,6 +436,9 @@ label:hover {
     position: absolute;
     left: -9999px;
 }
+.fa-dharmachakra{
+    transition: all 2s;
+}
 
 input:checked + label {
     font-weight: bold;
@@ -406,8 +453,31 @@ input:checked + label {
     
 
     input[value="1"]:checked ~ .car-container .carousel img:nth-child(1) { transform: translateZ(540px) scale(1); opacity: 1; }
-    input[value="2"]:checked ~ .car-container .carousel img:nth-child(2) { transform: rotateY(45deg) translateZ(540px) scale(1); opacity: 1; }
-    input[value="3"]:checked ~ .car-container .carousel img:nth-child(3) { transform: rotateY(90deg) translateZ(540px) scale(1); opacity: 1; }
-    input[value="4"]:checked ~ .car-container .carousel img:nth-child(4) { transform: rotateY(135deg) translateZ(540px) scale(1); opacity: 1; }
-    input[value="5"]:checked ~ .car-container .carousel img:nth-child(5) { transform: rotateY(180deg) translateZ(540px) scale(1); opacity: 1; }
+    input[value="2"]:checked ~ .car-container .carousel img:nth-child(3) { transform: rotateY(45deg) translateZ(540px) scale(1); opacity: 1; }
+    input[value="3"]:checked ~ .car-container .carousel img:nth-child(4) { transform: rotateY(90deg) translateZ(540px) scale(1); opacity: 1; }
+    input[value="4"]:checked ~ .car-container .carousel img:nth-child(5) { transform: rotateY(135deg) translateZ(540px) scale(1); opacity: 1; }
+    input[value="5"]:checked ~ .car-container .carousel img:nth-child(6) { transform: rotateY(180deg) translateZ(540px) scale(1); opacity: 1; }
+    .fa-dharmachakra{transform: rotatey(90deg);
+
+    }
+    input[value="1"]:checked ~ .car-container .carousel .fa-dharmachakra { transform: rotateZ(180deg);}
+   input[value="2"]:checked ~ .car-container .carousel .fa-dharmachakra { transform: rotateZ(180deg) ;}
+   input[value="3"]:checked ~ .car-container .carousel .fa-solid .fa-dharmachakra { transform: rotateZ(180deg);}
+    input[value="4"]:checked ~.car-container .carousel .fa-solid .fa-dharmachakra{ transform: rotateZ(180deg); }
+    input[value="5"]:checked ~ .car-container .carousel .fa-solid.fa-dharmachakra { transform: rotateZ(180deg);}
+@media screen and (max-width:376px) {
+    input[value="1"]:checked ~ .car-container .carousel img:nth-child(1) { transform: translateZ(540px) translateX(-30px) scale(1); opacity: 1; }
+    input[value="2"]:checked ~ .car-container .carousel img:nth-child(3) { transform: rotateY(44deg) translateZ(540px) scale(1); opacity: 1; }
+    input[value="3"]:checked ~ .car-container .carousel img:nth-child(4) { transform: rotateY(88.5deg) translateZ(540px) scale(1); opacity: 1; }
+    input[value="4"]:checked ~ .car-container .carousel img:nth-child(5) { transform: rotateY(130deg) translateZ(540px) scale(1); opacity: 1; }
+    input[value="5"]:checked ~ .car-container .carousel img:nth-child(6) { transform: rotateY(175deg) translateZ(540px) scale(1); opacity: 1; }
     
+}
+@media screen and (max-width:337px) {
+    input[value="1"]:checked ~ .car-container .carousel img:nth-child(1) { transform: translateZ(540px) translateX(-30px) scale(1); opacity: 1; }
+    input[value="2"]:checked ~ .car-container .carousel img:nth-child(3) { transform: rotateY(40deg) translateZ(540px) scale(1); opacity: 1; }
+    input[value="3"]:checked ~ .car-container .carousel img:nth-child(4) { transform: rotateY(86deg) translateX(-5px) translateZ(540px) scale(1); opacity: 1; }
+    input[value="4"]:checked ~ .car-container .carousel img:nth-child(5) { transform: rotateY(130deg) translateZ(540px) scale(1); opacity: 1; }
+    input[value="5"]:checked ~ .car-container .carousel img:nth-child(6) { transform: rotateY(175deg) translateZ(540px) scale(1); opacity: 1; }
+    
+}
