@@ -53,6 +53,7 @@ body{
 }
 
 
+
 .my-container{
     overflow: hidden;
     margin-left: 250px;
@@ -123,11 +124,17 @@ body{
     padding-top: 12%;
     padding-left: 40%;
 }
-    
+@media screen and (max-width:500px) {
+    .homebox{
+        margin-top:20%;
+        margin-left:-25%;
+    }
+}
 .homepic{
     position: absolute;
     width:200px;
     border-radius: 70%;
+    
 }
 .circlecontainer{
     display:flex;
@@ -211,9 +218,9 @@ body{
 }
 
 .servicebox{
-    height: 280px;
+    max-height: 350px;
     margin-top:20px;
-    width: 300px;
+    max-width: 350px;
     background-color: white;
     transition: all ease-in-out .4s;
     margin-left: 1%;
@@ -242,13 +249,7 @@ body{
     transform:scale(0.8);  
 }
 
-.contact-container{
-margin-top: 80px;
-}
-.contactrow{
-    display:flex;
 
-}
 .cube { padding-right:100px;
     width: 50px;
     height: 50px;
@@ -357,41 +358,83 @@ margin-top: 80px;
     
  }
  #projects{
+     min-height: fit-content;
+     padding-top: 5%;
+    padding-bottom: 5%;
     max-width:100vw;
  }
  .projectbox{
-     padding:50px;
-     display:flex;
-     flex-wrap:wrap-reverse;
-     margin:60px;
-     justify-content: space-around;
+    padding:10px;
+    display:flex;
+    flex:wrap;
+    justify-content: space-around;
+}
+.prjectbox-inner{
+    position: relative;
+width:25%
+}
+.projectpic {
+    opacity: 1;
+  display: block;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+.promiddle{
+        transition: .5s ease;
+     opacity: 0; 
+    position: absolute;
+    transform: translate(48%, -200%);
+    text-align: center;
  }
-
+ .projectbox-inner:hover .projectpic{
+    opacity: 0.3;
+  }
+  
+  .projectbox-inner:hover .promiddle{
+    opacity: 1;
+  }
  
 
+.protext {
+    color:--text-color;
+    font-size: 16px;
+    padding: 16px 32px;
+ }
 figure {
     margin: auto;
 }
-
+.testimonials-container{
+    box-shadow: 0.6px 0.6px 4px 4px lightgray;
+    background-color: rgba(252, 252, 252, 0.2);
+}
 .car-container {
-    width: 400px;
+    width: 30%;
     height: 300px;
-    text-align: left;
-    margin: 60px auto;
+    text-align: center;
+    margin: 60px 32% 60px 38%;
     perspective: 1000px;
-    perspective-origin: 50% -25%;
+    perspective-origin: 70% -25%;
 }
 
     .carousel {
         transform-style: preserve-3d;
-        transform: translateZ(-540px);
+        transform: translateZ(-350px);
         position: relative;
         margin: 0;
-        width: 300px;
+        width: 200px;
         height: 200px;
         transition: 1s;
     }
-
+.carousel p{
+    position: absolute;
+            transition: 2s;
+            box-shadow: 0 0 20px rgba(47, 46, 77, 0.15);
+    width: 300px;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 5px solid var(--highlight-color);
+    
+}
         .carousel img {
             position: absolute;
             border: 5px solid var(--highlight-color);
@@ -400,26 +443,42 @@ figure {
             box-shadow: 0 0 20px rgba(47, 46, 77, 0.15);
     width: 300px;
     height: 200px;
-    background:#ffff;
+    background-color: rgba(252, 252, 252, 0.9);
         }
+ @media screen and (max-width:415px) {
+    .carousel img {
+        position: absolute;
+        border:none;
+        opacity: .5;
+        transition: .5s;
+        box-shadow: 0 0;
+background:rgba(227, 22, 63, 0);
+filter:drop-shadow(5px 5px 5px #222);
+    }
+    
+    .homebox{
+        margin-top:30%;
+        margin-left:-25%;
+    }
+ }       
 
-            
+ .carousel i:nth-child(2) {
+    transform: rotateY(90deg) translateX(-50px)  scale(.8); }        
 .carousel img:nth-child(1) {
     width:280px;
-      transform: translateZ(540px) scale(.8); }
-.carousel img:nth-child(3) {
-      transform: rotateY(45deg) translateZ(540px) scale(.8); }
+      transform: translateZ(400px) rotateY(10deg) scale(.8); }
+
 .carousel img:nth-child(4) {
-      transform: rotateY(90deg) translateZ(540px) scale(.8); }
-.carousel img:nth-child(5) {
-      transform: rotateY(135deg) translateZ(540px) scale(.8); }
-.carousel img:nth-child(6) { 
-      transform: rotateY(180deg) translateZ(540px) scale(.8); }
+      transform: rotateY(90deg) translateZ(350px) scale(.8); }
+
+.carousel img:nth-child(6) {
+    width:280px; 
+      transform: rotateY(180deg) translateZ(350px) scale(.8); }
+     
             
 label {
     cursor: pointer;
     text-align: center;
-    
     display: inline-block;
     border-radius: 10px;
     width: 30px;
@@ -445,39 +504,58 @@ input:checked + label {
     background: var(--highlight-color);
 }
 
- input[value="1"]:checked ~ .car-container .carousel { transform: translateZ(-540px); }
- input[value="2"]:checked ~ .car-container .carousel { transform: translateZ(-540px) rotateY(-45deg); }
- input[value="3"]:checked ~ .car-container .carousel { transform: translateZ(-540px) rotateY(-90deg); }
-    input[value="4"]:checked ~ .car-container .carousel { transform: translateZ(-540px) rotateY(-135deg); }
-    input[value="5"]:checked ~ .car-container .carousel { transform: translateZ(-540px) rotateY(-180deg); }
+ input[value="1"]:checked ~ .car-container .carousel { transform: translateZ(-350px); }
+ input[value="2"]:checked ~ .car-container .carousel { transform: translateZ(-350px) rotateY(-45deg); }
+ input[value="3"]:checked ~ .car-container .carousel { transform: translateZ(-350px) rotateY(-90deg); }
+ input[value="4"]:checked ~ .car-container .carousel { transform: translateZ(-350px) rotateY(-115deg); }
+ input[value="5"]:checked ~ .car-container .carousel { transform: translateZ(-400px) rotateY(-160deg); }
+input[value="6"]:checked ~ .car-container .carousel { transform: translateZ(-400px) rotateY(-225deg); }
     
 
-    input[value="1"]:checked ~ .car-container .carousel img:nth-child(1) { transform: translateZ(540px) scale(1); opacity: 1; }
-    input[value="2"]:checked ~ .car-container .carousel img:nth-child(3) { transform: rotateY(45deg) translateZ(540px) scale(1); opacity: 1; }
-    input[value="3"]:checked ~ .car-container .carousel img:nth-child(4) { transform: rotateY(90deg) translateZ(540px) scale(1); opacity: 1; }
-    input[value="4"]:checked ~ .car-container .carousel img:nth-child(5) { transform: rotateY(135deg) translateZ(540px) scale(1); opacity: 1; }
-    input[value="5"]:checked ~ .car-container .carousel img:nth-child(6) { transform: rotateY(180deg) translateZ(540px) scale(1); opacity: 1; }
+    input[value="1"]:checked ~ .car-container .carousel img:nth-child(1) { transform: translateZ(350px) scale(1); opacity: 1; }
+    input[value="2"]:checked ~ .car-container .carousel p:nth-child(3) { transform: rotateY(45deg) translateZ(350px) scale(1); opacity: 1; }
+    input[value="3"]:checked ~ .car-container .carousel img:nth-child(4) { transform: rotateY(90deg) translateZ(350px) scale(1); opacity: 1; }
+    input[value="4"]:checked ~ .car-container .carousel p:nth-child(5) { transform: rotateY(135deg) translateZ(400px) scale(1); opacity: 1; }
+    input[value="5"]:checked ~ .car-container .carousel img:nth-child(6) { transform: rotateY(180deg) translateZ(400px) scale(1); opacity: 1; }
     .fa-dharmachakra{transform: rotatey(90deg);
-
     }
-    input[value="1"]:checked ~ .car-container .carousel .fa-dharmachakra { transform: rotateZ(180deg);}
+    input[value="6"]:checked ~ .car-container .carousel p:nth-child(7) { transform: rotateY(225deg) translateZ(400px) scale(1); opacity: 1; }
+    .fa-dharmachakra{transform: rotatey(90deg);}
+
+input[value="1"]:checked ~ .car-container .carousel .fa-dharmachakra { transform: rotateZ(180deg);}
    input[value="2"]:checked ~ .car-container .carousel .fa-dharmachakra { transform: rotateZ(180deg) ;}
-   input[value="3"]:checked ~ .car-container .carousel .fa-solid .fa-dharmachakra { transform: rotateZ(180deg);}
+   input[value="3"]:checked ~ .car-container .carousel .fa-solid .fa-dharmachakra { transform: translateX(-100px) rotateZ(180deg);}
     input[value="4"]:checked ~.car-container .carousel .fa-solid .fa-dharmachakra{ transform: rotateZ(180deg); }
     input[value="5"]:checked ~ .car-container .carousel .fa-solid.fa-dharmachakra { transform: rotateZ(180deg);}
-@media screen and (max-width:376px) {
-    input[value="1"]:checked ~ .car-container .carousel img:nth-child(1) { transform: translateZ(540px) translateX(-30px) scale(1); opacity: 1; }
-    input[value="2"]:checked ~ .car-container .carousel img:nth-child(3) { transform: rotateY(44deg) translateZ(540px) scale(1); opacity: 1; }
-    input[value="3"]:checked ~ .car-container .carousel img:nth-child(4) { transform: rotateY(88.5deg) translateZ(540px) scale(1); opacity: 1; }
-    input[value="4"]:checked ~ .car-container .carousel img:nth-child(5) { transform: rotateY(130deg) translateZ(540px) scale(1); opacity: 1; }
-    input[value="5"]:checked ~ .car-container .carousel img:nth-child(6) { transform: rotateY(175deg) translateZ(540px) scale(1); opacity: 1; }
+    input[value="6"]:checked ~ .car-container .carousel .fa-solid.fa-dharmachakra { transform: rotateZ(225deg);}
+
+@media screen and (max-width:470px) {
+    input[value="1"]:checked ~ .car-container .carousel img:nth-child(1) { transform: translateZ(350px) translateX(-30px) scale(1); opacity: 1; }
+    input[value="2"]:checked ~ .car-container .carousel p:nth-child(3) { transform: rotateY(44deg) translateZ(350px) scale(1); opacity: 1; }
+    input[value="3"]:checked ~ .car-container .carousel img:nth-child(4) { transform: rotateY(87deg) translateZ(350px) scale(1); opacity: 1; }
+    input[value="4"]:checked ~ .car-container .carousel p:nth-child(5) { transform: rotateY(130deg) translateZ(350px) scale(1); opacity: 1; }
+    input[value="5"]:checked ~ .car-container .carousel img:nth-child(6) { transform: rotateY(175deg) translateZ(350px) scale(1); opacity: 1; }
+    input[value="6"]:checked ~ .car-container .carousel p:nth-child(7) { transform: rotateY(205deg) translateZ(350px) scale(1); opacity: 1; }
     
 }
-@media screen and (max-width:337px) {
-    input[value="1"]:checked ~ .car-container .carousel img:nth-child(1) { transform: translateZ(540px) translateX(-30px) scale(1); opacity: 1; }
-    input[value="2"]:checked ~ .car-container .carousel img:nth-child(3) { transform: rotateY(40deg) translateZ(540px) scale(1); opacity: 1; }
-    input[value="3"]:checked ~ .car-container .carousel img:nth-child(4) { transform: rotateY(86deg) translateX(-5px) translateZ(540px) scale(1); opacity: 1; }
-    input[value="4"]:checked ~ .car-container .carousel img:nth-child(5) { transform: rotateY(130deg) translateZ(540px) scale(1); opacity: 1; }
-    input[value="5"]:checked ~ .car-container .carousel img:nth-child(6) { transform: rotateY(175deg) translateZ(540px) scale(1); opacity: 1; }
+@media screen and (max-width:397px) {
+    input[value="1"]:checked ~ .car-container .carousel img:nth-child(1) { transform: translateZ(350px) translateX(-70px) scale(1); opacity: 1; }
+    input[value="2"]:checked ~ .car-container .carousel p:nth-child(3) { transform: rotateY(40deg) translateZ(350px) scale(1); opacity: 1; }
+    input[value="3"]:checked ~ .car-container .carousel img:nth-child(4) { transform: rotateY(88deg) translateX(-40px) translateZ(350px) scale(1); opacity: 1; }
+    input[value="4"]:checked ~ .car-container .carousel p:nth-child(5) { transform: rotateY(130deg) translateZ(350px) scale(1); opacity: 1; }
+    input[value="5"]:checked ~ .car-container .carousel img:nth-child(6) { transform: rotateY(175deg) translateZ(350px) scale(1); opacity: 1; }
+    input[value="6"]:checked ~ .car-container .carousel p:nth-child(7) { transform: rotateY(205deg) translateZ(350px) scale(1); opacity: 1; }
     
+}
+.contact-container{
+    margin-top: 80px;
+    }
+    .contactrow{
+        display:flex;
+    
+    }
+
+.footerbox{
+    box-shadow: 0.6px 0.6px 4px 4px lightgray;
+    background-color: rgba(252, 252, 252, 0.2);
 }
